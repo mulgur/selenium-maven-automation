@@ -54,7 +54,18 @@ public class DiceJobSearch {
 		String count = driver.findElement(By.id("posiCountId")).getText();
 		System.out.println(count);
 		//ensure count is more than 0
-		int countResult = Integer.parseInt(count);
+		int countResult = Integer.parseInt(count.replaceAll(",", ""));
+		
+		
+		if(countResult > 0) 
+			System.out.println("Step PASS: Keyword : " + keyword + " search return " + countResult + "results in the zip code " + location);
+		else
+			System.out.println("Step FAIL: Keyword : " + keyword + " search return " + countResult + "results in the zip code " + location);
+		
+		driver.close();
+		
+	
+		
 		
 		
 		
